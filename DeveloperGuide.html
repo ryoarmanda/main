@@ -9,46 +9,47 @@
 <div id="toc" class="toc">
 <div id="toctitle"></div>
 <ul class="sectlevel1">
-<li><a href="#setting-up">1. Setting up</a></li>
-<li><a href="#design">2. Design</a>
+<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#setting-up">2. Setting up</a></li>
+<li><a href="#design">3. Design</a>
 <ul class="sectlevel2">
-<li><a href="#Design-Architecture">2.1. Architecture</a></li>
-<li><a href="#Design-Ui">2.2. UI component</a></li>
-<li><a href="#Design-Logic">2.3. Logic component</a></li>
-<li><a href="#Design-Model">2.4. Model component</a></li>
-<li><a href="#Design-Storage">2.5. Storage component</a></li>
-<li><a href="#Design-Commons">2.6. Common classes</a></li>
+<li><a href="#Design-Architecture">3.1. Architecture</a></li>
+<li><a href="#Design-Ui">3.2. UI component</a></li>
+<li><a href="#Design-Logic">3.3. Logic component</a></li>
+<li><a href="#Design-Model">3.4. Model component</a></li>
+<li><a href="#Design-Storage">3.5. Storage component</a></li>
+<li><a href="#Design-Commons">3.6. Common classes</a></li>
 </ul>
 </li>
-<li><a href="#implementation">3. Implementation</a>
+<li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#proposed-undo-redo-feature">3.1. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#proposed-undo-redo-feature">4.1. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">4.2. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">4.3. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.4. Configuration</a></li>
 </ul>
 </li>
-<li><a href="#documentation">4. Documentation</a></li>
-<li><a href="#testing">5. Testing</a></li>
-<li><a href="#dev-ops">6. Dev Ops</a></li>
+<li><a href="#documentation">5. Documentation</a></li>
+<li><a href="#testing">6. Testing</a></li>
+<li><a href="#dev-ops">7. Dev Ops</a></li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
 <li><a href="#use-cases">Appendix C: Use Cases</a></li>
-<li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
-<li><a href="#glossary">Appendix E: Glossary</a></li>
-<li><a href="#product-survey">Appendix F: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
-<ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
-<li><a href="#saving-data">G.3. Saving data</a></li>
-</ul>
-</li>
 </ul>
 </div>
 </div>
 <div class="sect1">
-<h2 id="setting-up"><a class="link" href="#setting-up">1. Setting up</a></h2>
+<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>NUSpend is a desktop CLI application that help users track their expenses.
+The App supports many other extensions such as budgeting, planning and reminders.
+In particular, it is tailored to students in National University of Singapore who dines frequently in school canteens.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="setting-up"><a class="link" href="#setting-up">2. Setting up</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="SettingUp.html">here</a>.</p>
@@ -56,10 +57,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="design"><a class="link" href="#design">2. Design</a></h2>
+<h2 id="design"><a class="link" href="#design">3. Design</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">2.1. Architecture</a></h3>
+<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">3.1. Architecture</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/ArchitectureDiagram.png" alt="ArchitectureDiagram">
@@ -162,7 +163,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.2. UI component</a></h3>
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">3.2. UI component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram">
@@ -193,7 +194,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
+<h3 id="Design-Logic"><a class="link" href="#Design-Logic">3.3. Logic component</a></h3>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
@@ -246,7 +247,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
+<h3 id="Design-Model"><a class="link" href="#Design-Model">3.4. Model component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
@@ -291,7 +292,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.5. Storage component</a></h3>
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. Storage component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
@@ -316,7 +317,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.6. Common classes</a></h3>
+<h3 id="Design-Commons"><a class="link" href="#Design-Commons">3.6. Common classes</a></h3>
 <div class="paragraph">
 <p>Classes used by multiple components are in the <code>seedu.addressbook.commons</code> package.</p>
 </div>
@@ -324,15 +325,15 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </div>
 </div>
 <div class="sect1">
-<h2 id="implementation"><a class="link" href="#implementation">3. Implementation</a></h2>
+<h2 id="implementation"><a class="link" href="#implementation">4. Implementation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.1. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">4.1. [Proposed] Undo/Redo feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.1.1. Proposed Implementation</a></h4>
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">4.1.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -474,7 +475,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -544,20 +545,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.2. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.3. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.4, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -588,7 +589,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.4. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -596,7 +597,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect1">
-<h2 id="documentation"><a class="link" href="#documentation">4. Documentation</a></h2>
+<h2 id="documentation"><a class="link" href="#documentation">5. Documentation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Documentation.html">here</a>.</p>
@@ -604,7 +605,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect1">
-<h2 id="testing"><a class="link" href="#testing">5. Testing</a></h2>
+<h2 id="testing"><a class="link" href="#testing">6. Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Testing.html">here</a>.</p>
@@ -612,7 +613,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect1">
-<h2 id="dev-ops"><a class="link" href="#dev-ops">6. Dev Ops</a></h2>
+<h2 id="dev-ops"><a class="link" href="#dev-ops">7. Dev Ops</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="DevOps.html">here</a>.</p>
@@ -628,7 +629,16 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>has a need to manage a significant number of contacts</p>
+<p>has a need to track a significant number of expenses</p>
+</li>
+<li>
+<p>lives on a monthly allowance</p>
+</li>
+<li>
+<p>wants to save money</p>
+</li>
+<li>
+<p>has difficulty remembering important dates, such as friends' birthdays or anniversaries</p>
 </li>
 <li>
 <p>prefer desktop apps over other types</p>
@@ -645,7 +655,14 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Value proposition</strong>: manage contacts faster than a typical mouse/GUI driven app</p>
+<p><strong>Value proposition</strong>:
+* manage contacts faster than a typical mouse/GUI driven app
+* optimized for students in National University of Singapore
+* make prediction for future spending based on extrapolation from past statistics and upcoming important dates
+* customizable categories, budgets and aliases
+* flexible forms of viewing a summary of expenses
+* give input suggestions while typing
+* more convenient time format</p>
 </div>
 </div>
 </div>
@@ -673,39 +690,231 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">new user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see usage instructions</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">refer to instructions when I forget how to use the App</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">full-time university student without any stable income</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">record my expenses</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">track my spending and practice financial management skills</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">non-money minded person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view a list of all my previous expenses</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be better at tracking my expenses</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add a new person</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">categorize my expenses by types (e.g. Transport, Food, etc.)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">differentiate expenses easily</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete a person</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove entries that I no longer need</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">YEP (Youth Expedition Project) organizer who is in charge of logistics for my overseas project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete a previous expense</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I do not keep track of expenses that have been reimbursed by Youth Corps Singapore</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find a person by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate details of persons without having to go through the entire list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">non-money minded person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">save the expenses data locally</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">still keep track of my expenses even after closing the App</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">foodie who frequently goes out with friends and pays for grab/restaurant bills</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">quickly find a particular entry by typing a keyword</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">refer to a previous expense and know how much money my friend needs to pay me back</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">someone who is not good at managing my money</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view budget breaking expenses</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">quickly know which expenses make up a big part of my budget</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">forgetful person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get notified of upcoming birthdays/anniversaries</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">budget for these special dates</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lazy person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">specify tax rate and let the app calculates the total price for me when entering expense</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can know the after-tax price when ordering in restaurants</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">money-minded user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">extrapolate from daily/weekly expenses to monthly expenses</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have a rough gauge on future spending and plan budgets accordingly</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hide <a href="#private-contact-detail">private contact details</a> by default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">minimize chance of someone else seeing them by accident</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">manually input my expenses in an external file and import these expenses into the App</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">track previous expenses that occur before I start using the App</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">request for periodic statements</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">revise and reflect on my past expenses</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">busy person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add repeated expenses by selecting a previous expense and adding as a current expense</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">save time when using the App</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">financially dependent student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">export my past expenses</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">my parents can see my spending</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lazy user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">let the App predict the tags for my expenses</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">use automated suggestions provided to me for better categorizaton</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">person working part time/TA-ing/etc</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">let the App add to my earnings automatically based on salary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">track my income as well</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">foreign student on exchange in NUS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">input my spending in SGD and have it automatically converted to my local currency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">better track my spending in a currency I&#8217;m more comfortable with</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">visual person who easily gets confused by a large amount of text and prefers graphic illustrations</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view my monthly expenses in pie charts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">better understand the weightage of spending in different categories in a more direct and efficient manner</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update details of a past expense</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">correct erroneous past expenses without having to delete it and add again</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lazy user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">schedule recurring expenses</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">avoid having to key in the same information all the time. (However, I want to be able to confirm details of the expense.)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">busy person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">let the App use the current time for an expense if I do not specify a time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">avoid always having to manually key in a time for my expense</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">busy person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enter the time as yesterday, one hour ago, etc</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">save effort by using convenient and flexible time formats</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">non-money minded person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">receive warnings when I’m close to or exceeding my budget</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">adjust my expenses to prevent overspending</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">careless person who is prone to typos</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">undo my previous command</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I do not enter the wrong amount for my expenses</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">careless person who is prone to typos</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">redo my previous command</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I do not delete expenses by accident</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">non-money minded person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set periodic budgets</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">discipline my spending</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">non-money minded person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set categorical budgets</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">exceptional expenses (e.g. healthcare or sponsored expenses) are not tracked under default budget to prevent confusion</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">non-money minded person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">let the App suggest some budgeting tips for me</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be better at tracking my expenses</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user with many persons in the address book</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sort persons by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate a person easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">forgetful person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">receive email reminders if I haven’t input my expenses for a few days</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">do not forget to track my expense</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">someone who spends a lot of time in public spaces in school</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">easily hide my budgeting information on the application quickly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">others could not see the details on my screen</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">busy person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">input my expenses by scanning a receipt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">can save more time than manually typing in the expenses</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NUS student, and lazy person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add expense from school canteens by saying e.g. “deck steamed chicken rice”</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">don&#8217;t need to enter the details and prices</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">non-financially independent student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hide some details when exporting expenses</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">do not share exact details with my parents but instead include them as an anonymous expense</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">non-money minded person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">let the App help me make saving plans for future expenses</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">start saving early</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">group certain expenses, e.g. group chicken rice and milo as lunch, but both remain separate entries as well</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">manage related expenses together</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">advanced CLI user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add aliases to my common inputs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">avoid typing the similar things every time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">let the App predict frequent similar expenses and prompt me to enter them</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">do not miss expenses while I&#8217;m not using the App</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">busy student who may need to close the App to settle some other matters</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">let the App remember what I had typed into the command line last time I closed the App</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">resume when I reopen the app</p></td>
 </tr>
 </tbody>
 </table>
@@ -718,7 +927,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is <code>NUSpend</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
 <h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
 <div class="paragraph">
@@ -769,9 +978,105 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </li>
 </ul>
 </div>
-<h3 id="use-case-show-reminders" class="discrete">Use case: Show reminders</h3>
+<h3 id="use-case-add-a-budget-and-switch-to-it" class="discrete">Use case: Add a budget and switch to it</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add a budget and specifies budget name, amount, period and start date</p>
+</li>
+<li>
+<p>NUSpend shows success in creating new budget</p>
+</li>
+<li>
+<p>User requests to switch to this budget by specifying the budget name</p>
+</li>
+<li>
+<p>GUI switches to the budget and sets it as current primary budget for displaying and calculating expenses</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1a. User misses any of the necessary parameters: budget name, amount, period or start date</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. NUSpend shows an error message and reminds the user to complete the parameters.</p>
+</li>
+<li>
+<p>1a2. User re-enters the command with new data.</p>
+</li>
+<li>
+<p>Steps 1a1-1a2 are repeated until the parameters entered are correct and complete.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3a. User forgets to input the name of the budget he wants to switch to.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. NUSpend shows an error message and requests for the budget name.</p>
+</li>
+<li>
+<p>3a2. User re-enters the command, specifying the budget name.</p>
+<div class="paragraph">
+<p>Use case resumes at step 4.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. User enters a budget name that does not correspond to any of the currently existing budgets.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. NUSpend shows an error message and requests for a correct budget name that exists.</p>
+</li>
+<li>
+<p>3b2. User re-enters the command with a new budget name.</p>
+</li>
+<li>
+<p>Steps 3b1-3b2 are repeated until the budget name entered is an existing one.</p>
+<div class="paragraph">
+<p>Use case resumes at step 4.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. There are no reminders.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>=== Use case: Show reminders
+<strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -788,16 +1093,6 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 <div class="paragraph">
 <p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a. There are no reminders.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
 </div>
 <div class="paragraph">
 <p><em>{More to be added}</em></p>
@@ -852,11 +1147,9 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>== Non Functional Requirements</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></h2>
-<div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -885,11 +1178,9 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="paragraph">
 <p><em>{More to be added}</em></p>
 </div>
+<div class="paragraph">
+<p>== Glossary</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="glossary"><a class="link" href="#glossary">Appendix E: Glossary</a></h2>
-<div class="sectionbody">
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
@@ -906,11 +1197,9 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </dd>
 </dl>
 </div>
+<div class="paragraph">
+<p>== Product Survey</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix F: Product Survey</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Budgie</strong></p>
 </div>
@@ -1013,11 +1302,9 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>== Instructions for Manual Testing</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
 </div>
@@ -1033,8 +1320,9 @@ These instructions only provide a starting point for testers to work on; testers
 </tr>
 </table>
 </div>
-<div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
+<div class="paragraph">
+<p>=== Launch and Shutdown</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1070,9 +1358,9 @@ Expected: The most recent window size and location is retained.</p>
 <div class="paragraph">
 <p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
+<div class="paragraph">
+<p>=== Deleting a person</p>
 </div>
-<div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1102,9 +1390,9 @@ Expected: Similar to previous.</p>
 <div class="paragraph">
 <p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
+<div class="paragraph">
+<p>=== Saving data</p>
 </div>
-<div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1124,4 +1412,5 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-02 16:05:34 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-02 16:12:41 UTC</div></div></div></body></html>
