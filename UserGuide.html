@@ -19,8 +19,17 @@
 <li><a href="#prediction-code-predict-code">3.4. Prediction : <code>predict</code></a></li>
 <li><a href="#creating-an-alias-for-your-favourite-commands-code-alias-code">3.5. Creating an alias for your favourite commands : <code>alias</code></a></li>
 <li><a href="#reminders">3.6. Reminders</a></li>
+<li><a href="#saving-the-data">3.7. Saving the data</a></li>
+<li><a href="#viewing-statistics">3.8. Viewing Statistics</a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.9. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data-2">3.10. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.11. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#email-notification-code-coming-in-v2-0-code">3.12. Email notification <code>[coming in v2.0]</code></a></li>
+<li><a href="#input-expenses-by-scanning-a-receipt-code-coming-in-v2-0-code">3.13. Input expenses by scanning a receipt <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
+<li><a href="#faq">4. FAQ</a></li>
+<li><a href="#command-summary">5. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -471,121 +480,220 @@ Records the EVENT with the timestamp DATE.</p>
 <div class="content">
 <pre class="CodeRay highlight"><code>You have these important dates coming up!
 Brian’s birthday: 04/06/2020
-Mum’s birthday: 06/06/2020
-
-=== Saving the data
-Expense tracker data are saved in the hard disk automatically after any command that changes the data.
-There is no need to save manually.
-
-=== Viewing Statistics
-==== Summary : `stats`
-Produces statistics regarding the user’s expenses.
-
-The statistics include all categories of items, with the number of entries, the total amount spent and the percentage composition of the total expenditure.
-
-Format: `stats [start/START_DATE] [end/END_DATE]`
-[where dates are in DD-MM-YYYY format]
-
-- `START_DATE` will be checked to be earlier than `END_DATE`
-
-- If `START_DATE` is specified but `END_DATE` is empty, statistics is calculated from one month after `START_DATE`(or part thereoff)
-
-- If `START_DATE` is empty but `END_DATE` is specified, statistics is calculated from one month before `START_DATE`(or part thereoff)
-
-Example:
-`stats`
-`stats end/12-12-2018`
-`stats start/11-11-2018 end/12-12-2018`
-
-==== Compare : `statscompare`
-Produces and displays statistics regarding the user’s finance for 2 time periods. The statistics include all categories of items, the number of entries and the total amount spent and the percentage composition of the total, stated as a difference using second period – first period
-
-Format: `statscompare start1/START_DATE_1 end1/END_DATE start2/START_DATE_2 end2/END_DATE_2`
-
-- Support similar constraints like basic stats command for 1 period
-
-- If only 1 valid period is given, then the functionality is similar to `stats START_DATE END_DATE`
-
-Examples:
-`statscompare start1/01-01-2019 end1/01-02-2019 start2/01-01-2019 end2/01-02-2019`
-
-==== Visualize: `visual`
-Generates pie chart for spending in different categories. The pie chart also shows the percentage composition of the total expenditure in text.
-
-Format: `visual [start/START_DATE] [end/END_DATE]`
-[where dates are in dd-MM-yyyy format]
-
-- `START_DATE` will be checked to be earlier than `END_DATE`
-
-- If `START_DATE` is specified but `END_DATE` is empty, statistics is calculated from one month after `START_DATE`(or part thereoff)
-
-- If `START_DATE` is empty but `END_DATE` is specified, statistics is calculated from one month before `START_DATE`(or part thereoff)
-
-- If both `START_DATE` and `END_DATE` are empty, statistics is calculated from the start of this month till today.
-
-Example:
-`visual`
-`visual end/12-12-2018`
-`visual start/11-11-2018 end/12-12-2018`
-
-=== Exiting the program : `exit`
-
-Exits the program. +
-Format: `exit`
-
-=== Saving the data
-
-NUSpend data are saved in the hard disk automatically after any command that changes the data. +
-There is no need to save manually.
-
-=== Encrypting data files `[coming in v2.0]`
-
-=== Email notification `[coming in v2.0]`
-
-=== Input expenses by scanning a receipt `[coming in v2.0]`
-
-
-== FAQ
-
-*Q*: How do I transfer my data to another Computer? +
-*A*: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous NUSpend folder.
-
-== Command Summary
-
-* *Add an expense* `add d/DESCRIPTION p/PRICE [t/time] [c/CATEGORY]...` +
-e.g. `add d/Chicken Rice p/2.50 t/15-09-2019 1230 c/Food`
-* *Clear all expenses* : `clear`
-* *Compare statistics* : `statscompare start1/START_DATE_1 end1/END_DATE start2/START_DATE_2 end2/END_DATE_2` +
-e.g. `statscompare start1/01-01-2019 end1/01-02-2019 start2/01-01-2019 end2/01-02-2019`
-* *Create alias* : `alias a/ALIAS_NAME c/COMMAND_WITH_PARAMETERS` +
-e.g. `alias a/chicken rice c/ add d/ Chicken Rice p/2.50 c/Food`
-* *Create new budget* : `budget n/BUDGET_NAME a/BUDGET_AMOUNT t/BUDGET_PERIOD d/BUDGET_START_DATE [p/IS_PRIMARY]` +
-e.g. `budget n/General expense a/100 t/1 month d/18-09-2019`
-* *Currency conversion* : `convert`
-* *Delete an expense* : `delete INDEX` +
-e.g. `delete 3`
-* *Edit an expense* : `edit INDEX [p/PRICE] [d/DESCRIPTION] [t/time] [c/CATEGORY]...` +
-e.g. `edit 2 p/3.50`
-* *Exit the app* : `exit`
-* *Find an expense* : `find KEYWORD [MORE_KEYWORDS]` +
-e.g. `find rice`
-* *List all expenses* : `list`
-* *List all reminders* : `reminders`
-* *Help* : `help`
-* *Prediction* : `predict`
-* *Record important date* : `remind EVENT DATE [n DAYS]` +
-e.g. `remind Brian’s birthday 04/06/2020 14 DAYS`
-* *Redo* : `redo`
-* *Switch budget* : `switchbudget n/BUDGET_NAME` +
-e.g. `switchbudget General Expense`
-* *Undo* : `undo`
-* *View statistics* : `stats [start/START_DATE] [end/END_DATE]` +
-e.g. `stats start/11-11-2018 end/12-12-2018`
-* *Visualize* : `visual [start/START_DATE] [end/END_DATE]` +
-e.g. `visual start/11-11-2018 end/12-12-2018`</code></pre>
+Mum’s birthday: 06/06/2020</code></pre>
 </div>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.7. Saving the data</a></h3>
+<div class="paragraph">
+<p>Expense tracker data are saved in the hard disk automatically after any command that changes the data.
+There is no need to save manually.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-02 16:12:41 UTC</div></div></div></body></html>
+</div>
+<div class="sect2">
+<h3 id="viewing-statistics"><a class="link" href="#viewing-statistics">3.8. Viewing Statistics</a></h3>
+<div class="sect3">
+<h4 id="summary-code-stats-code"><a class="link" href="#summary-code-stats-code">3.8.1. Summary : <code>stats</code></a></h4>
+<div class="paragraph">
+<p>Produces statistics regarding the user’s expenses.</p>
+</div>
+<div class="paragraph">
+<p>The statistics include all categories of items, with the number of entries, the total amount spent and the percentage composition of the total expenditure.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>stats [start/START_DATE] [end/END_DATE]</code></p>
+</div>
+<div class="ulist where dates are in DD-MM-YYYY format">
+<ul class="where dates are in DD-MM-YYYY format">
+<li>
+<p><code>START_DATE</code> will be checked to be earlier than <code>END_DATE</code></p>
+</li>
+<li>
+<p>If <code>START_DATE</code> is specified but <code>END_DATE</code> is empty, statistics is calculated from one month after <code>START_DATE</code>(or part thereoff)</p>
+</li>
+<li>
+<p>If <code>START_DATE</code> is empty but <code>END_DATE</code> is specified, statistics is calculated from one month before <code>START_DATE</code>(or part thereoff)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:
+<code>stats</code>
+<code>stats end/12-12-2018</code>
+<code>stats start/11-11-2018 end/12-12-2018</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="compare-code-statscompare-code"><a class="link" href="#compare-code-statscompare-code">3.8.2. Compare : <code>statscompare</code></a></h4>
+<div class="paragraph">
+<p>Produces and displays statistics regarding the user’s finance for 2 time periods. The statistics include all categories of items, the number of entries and the total amount spent and the percentage composition of the total, stated as a difference using second period – first period</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>statscompare start1/START_DATE_1 end1/END_DATE start2/START_DATE_2 end2/END_DATE_2</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Support similar constraints like basic stats command for 1 period</p>
+</li>
+<li>
+<p>If only 1 valid period is given, then the functionality is similar to <code>stats START_DATE END_DATE</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:
+<code>statscompare start1/01-01-2019 end1/01-02-2019 start2/01-01-2019 end2/01-02-2019</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="visualize-code-visual-code"><a class="link" href="#visualize-code-visual-code">3.8.3. Visualize: <code>visual</code></a></h4>
+<div class="paragraph">
+<p>Generates pie chart for spending in different categories. The pie chart also shows the percentage composition of the total expenditure in text.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>visual [start/START_DATE] [end/END_DATE]</code></p>
+</div>
+<div class="ulist where dates are in dd-MM-yyyy format">
+<ul class="where dates are in dd-MM-yyyy format">
+<li>
+<p><code>START_DATE</code> will be checked to be earlier than <code>END_DATE</code></p>
+</li>
+<li>
+<p>If <code>START_DATE</code> is specified but <code>END_DATE</code> is empty, statistics is calculated from one month after <code>START_DATE</code>(or part thereoff)</p>
+</li>
+<li>
+<p>If <code>START_DATE</code> is empty but <code>END_DATE</code> is specified, statistics is calculated from one month before <code>START_DATE</code>(or part thereoff)</p>
+</li>
+<li>
+<p>If both <code>START_DATE</code> and <code>END_DATE</code> are empty, statistics is calculated from the start of this month till today.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:
+<code>visual</code>
+<code>visual end/12-12-2018</code>
+<code>visual start/11-11-2018 end/12-12-2018</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.9. Exiting the program : <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Exits the program.<br>
+Format: <code>exit</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data-2"><a class="link" href="#saving-the-data-2">3.10. Saving the data</a></h3>
+<div class="paragraph">
+<p>NUSpend data are saved in the hard disk automatically after any command that changes the data.<br>
+There is no need to save manually.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.11. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="email-notification-code-coming-in-v2-0-code"><a class="link" href="#email-notification-code-coming-in-v2-0-code">3.12. Email notification <code>[coming in v2.0]</code></a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="input-expenses-by-scanning-a-receipt-code-coming-in-v2-0-code"><a class="link" href="#input-expenses-by-scanning-a-receipt-code-coming-in-v2-0-code">3.13. Input expenses by scanning a receipt <code>[coming in v2.0]</code></a></h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous NUSpend folder.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Add an expense</strong> <code>add d/DESCRIPTION p/PRICE [t/time] [c/CATEGORY]&#8230;&#8203;</code><br>
+e.g. <code>add d/Chicken Rice p/2.50 t/15-09-2019 1230 c/Food</code></p>
+</li>
+<li>
+<p><strong>Clear all expenses</strong> : <code>clear</code></p>
+</li>
+<li>
+<p><strong>Compare statistics</strong> : <code>statscompare start1/START_DATE_1 end1/END_DATE start2/START_DATE_2 end2/END_DATE_2</code><br>
+e.g. <code>statscompare start1/01-01-2019 end1/01-02-2019 start2/01-01-2019 end2/01-02-2019</code></p>
+</li>
+<li>
+<p><strong>Create alias</strong> : <code>alias a/ALIAS_NAME c/COMMAND_WITH_PARAMETERS</code><br>
+e.g. <code>alias a/chicken rice c/ add d/ Chicken Rice p/2.50 c/Food</code></p>
+</li>
+<li>
+<p><strong>Create new budget</strong> : <code>budget n/BUDGET_NAME a/BUDGET_AMOUNT t/BUDGET_PERIOD d/BUDGET_START_DATE [p/IS_PRIMARY]</code><br>
+e.g. <code>budget n/General expense a/100 t/1 month d/18-09-2019</code></p>
+</li>
+<li>
+<p><strong>Currency conversion</strong> : <code>convert</code></p>
+</li>
+<li>
+<p><strong>Delete an expense</strong> : <code>delete INDEX</code><br>
+e.g. <code>delete 3</code></p>
+</li>
+<li>
+<p><strong>Edit an expense</strong> : <code>edit INDEX [p/PRICE] [d/DESCRIPTION] [t/time] [c/CATEGORY]&#8230;&#8203;</code><br>
+e.g. <code>edit 2 p/3.50</code></p>
+</li>
+<li>
+<p><strong>Exit the app</strong> : <code>exit</code></p>
+</li>
+<li>
+<p><strong>Find an expense</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
+e.g. <code>find rice</code></p>
+</li>
+<li>
+<p><strong>List all expenses</strong> : <code>list</code></p>
+</li>
+<li>
+<p><strong>List all reminders</strong> : <code>reminders</code></p>
+</li>
+<li>
+<p><strong>Help</strong> : <code>help</code></p>
+</li>
+<li>
+<p><strong>Prediction</strong> : <code>predict</code></p>
+</li>
+<li>
+<p><strong>Record important date</strong> : <code>remind EVENT DATE [n DAYS]</code><br>
+e.g. <code>remind Brian’s birthday 04/06/2020 14 DAYS</code></p>
+</li>
+<li>
+<p><strong>Redo</strong> : <code>redo</code></p>
+</li>
+<li>
+<p><strong>Switch budget</strong> : <code>switchbudget n/BUDGET_NAME</code><br>
+e.g. <code>switchbudget General Expense</code></p>
+</li>
+<li>
+<p><strong>Undo</strong> : <code>undo</code></p>
+</li>
+<li>
+<p><strong>View statistics</strong> : <code>stats [start/START_DATE] [end/END_DATE]</code><br>
+e.g. <code>stats start/11-11-2018 end/12-12-2018</code></p>
+</li>
+<li>
+<p><strong>Visualize</strong> : <code>visual [start/START_DATE] [end/END_DATE]</code><br>
+e.g. <code>visual start/11-11-2018 end/12-12-2018</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-02 16:38:32 UTC</div></div></div></body></html>
