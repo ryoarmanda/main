@@ -727,16 +727,16 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list persons</p>
+<p>User requests to list persons.</p>
 </li>
 <li>
-<p>AddressBook shows a list of persons</p>
+<p>AddressBook shows a list of persons.</p>
 </li>
 <li>
-<p>User requests to delete a specific person in the list</p>
+<p>User requests to delete a specific person in the list.</p>
 </li>
 <li>
-<p>AddressBook deletes the person</p>
+<p>AddressBook deletes the person.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -769,8 +769,88 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </li>
 </ul>
 </div>
+<h3 id="use-case-show-reminders" class="discrete">Use case: Show reminders</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to see reminders.</p>
+</li>
+<li>
+<p>AddressBook shows a list of reminders.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. There are no reminders.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p><em>{More to be added}</em></p>
+</div>
+<h3 id="use-case-add-event" class="discrete">Use case: Add event</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User adds an event.</p>
+</li>
+<li>
+<p>AddressBook tells the user that the event has been successfully added.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The event is formatted incorrectly (e.g. the date is invalid).</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3a. The same event has been previously stored.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -783,10 +863,22 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p>Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>11</code> or above installed.</p>
 </li>
 <li>
-<p>Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.</p>
+<p>Should be able to hold up to 1000 expenses without a noticeable sluggishness in performance for typical usage.</p>
 </li>
 <li>
 <p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
+</li>
+<li>
+<p>Should be at the least usable for a novice to command line interfaces.</p>
+</li>
+<li>
+<p>Data entered must not be volatile (i.e. can only be changed at the user&#8217;s command).</p>
+</li>
+<li>
+<p>Past data must be saved permanently unless deleted at the user&#8217;s command.</p>
+</li>
+<li>
+<p>Not required to have digital wallet support.</p>
 </li>
 </ol>
 </div>
@@ -808,6 +900,10 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <dd>
 <p>A contact detail that is not meant to be shared with others</p>
 </dd>
+<dt class="hdlist1"><a id="alias"></a> Alias</dt>
+<dd>
+<p>A user-defined keyword that represents a specific Expense, acting as a quality-of-life replacement for common Expenses.</p>
+</dd>
 </dl>
 </div>
 </div>
@@ -816,10 +912,10 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <h2 id="product-survey"><a class="link" href="#product-survey">Appendix F: Product Survey</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Product Name</strong></p>
+<p><strong>Budgie</strong></p>
 </div>
 <div class="paragraph">
-<p>Author: &#8230;&#8203;</p>
+<p>Author: STUCK</p>
 </div>
 <div class="paragraph">
 <p>Pros:</p>
@@ -827,10 +923,13 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>&#8230;&#8203;</p>
+<p>Remembers and approximates frequently entered expenses</p>
 </li>
 <li>
-<p>&#8230;&#8203;</p>
+<p>Provides temporary budget accounts for special occasions (i.e. vacationing, sponsored events)</p>
+</li>
+<li>
+<p>Pleasing and easily navigable interface due to a relatively small number of features</p>
 </li>
 </ul>
 </div>
@@ -840,10 +939,77 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>&#8230;&#8203;</p>
+<p>Expenses are kept very simple: There is no way to enter the location of the expense or place a tag on it</p>
 </li>
 <li>
-<p>&#8230;&#8203;</p>
+<p>Does not link to any financial accounts or digital wallets</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Wally</strong></p>
+</div>
+<div class="paragraph">
+<p>Author: Wally Global Inc.</p>
+</div>
+<div class="paragraph">
+<p>Pros:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Almost every foreign currency is supported, and can be converted to and from each other</p>
+</li>
+<li>
+<p>Each expense can be tagged with an accompanying photo (e.g. a receipt)</p>
+</li>
+<li>
+<p>Can set a password</p>
+</li>
+<li>
+<p>Can split group payments</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Cons:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Complex interface due to the large amount of features</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>YNAB (You Need A Budget)</strong></p>
+</div>
+<div class="paragraph">
+<p>Author: You Need A Budget LLC</p>
+</div>
+<div class="paragraph">
+<p>Pros:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Portions of a budget can be transferred to another easily in cases of underspending/overspending</p>
+</li>
+<li>
+<p>Innovative way of budgeting: every single dollar from your income must be assigned a 'job' (e.g. fun money, subscriptions)</p>
+</li>
+<li>
+<p>Can set budgeting goals</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Cons:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Can be rather stressful due to its obsession to categorise every single dollar you earned that month</p>
 </li>
 </ul>
 </div>
@@ -958,4 +1124,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-09-23 15:41:36 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-02 16:02:50 UTC</div></div></div></body></html>
