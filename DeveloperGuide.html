@@ -9,7 +9,12 @@
 <div id="toc" class="toc">
 <div id="toctitle"></div>
 <ul class="sectlevel1">
-<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#introduction">1. Introduction</a>
+<ul class="sectlevel2">
+<li><a href="#purpose-scope">1.1. Purpose &amp; Scope</a></li>
+<li><a href="#software-overview">1.2. Software Overview</a></li>
+</ul>
+</li>
 <li><a href="#setting-up">2. Setting up</a></li>
 <li><a href="#design">3. Design</a>
 <ul class="sectlevel2">
@@ -51,10 +56,20 @@
 <div class="sect1">
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="purpose-scope"><a class="link" href="#purpose-scope">1.1. Purpose &amp; Scope</a></h3>
+<div class="paragraph">
+<p>This document specifies architecture and software design decisions for the app NUSpend.
+The intended audience of this document is the developers, designers, and software testers of NUSpend.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="software-overview"><a class="link" href="#software-overview">1.2. Software Overview</a></h3>
 <div class="paragraph">
 <p>NUSpend is a desktop CLI application that help users track their expenses.
 The App supports many other extensions such as budgeting, planning and reminders.
 In particular, it is tailored to students in National University of Singapore who dines frequently in school canteens.</p>
+</div>
 </div>
 </div>
 </div>
@@ -665,14 +680,32 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Value proposition</strong>:
-* manage contacts faster than a typical mouse/GUI driven app
-* optimized for students in National University of Singapore
-* make prediction for future spending based on extrapolation from past statistics and upcoming important dates
-* customizable categories, budgets and aliases
-* flexible forms of viewing a summary of expenses
-* give input suggestions while typing
-* more convenient time format</p>
+<p><strong>Value proposition</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>manage contacts faster than a typical mouse/GUI driven app</p>
+</li>
+<li>
+<p>optimized for students in National University of Singapore</p>
+</li>
+<li>
+<p>make prediction for future spending based on extrapolation from past statistics and upcoming important dates</p>
+</li>
+<li>
+<p>customizable categories, budgets and aliases</p>
+</li>
+<li>
+<p>flexible forms of viewing a summary of expenses</p>
+</li>
+<li>
+<p>give input suggestions while typing</p>
+</li>
+<li>
+<p>more convenient time format</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1381,4 +1414,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-03 05:34:17 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-03 06:00:05 UTC</div></div></div></body></html>
