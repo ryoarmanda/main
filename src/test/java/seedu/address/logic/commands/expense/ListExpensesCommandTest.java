@@ -2,7 +2,6 @@ package seedu.address.logic.commands.expense;
 
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showExpenseAtIndex;
-import static seedu.address.testutil.TestUtil.makeModelStack;
 import static seedu.address.testutil.TypicalExpenses.getTypicalMooLah;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_EXPENSE;
 
