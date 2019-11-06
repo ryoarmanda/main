@@ -5,7 +5,6 @@ import static seedu.moolah.commons.core.Messages.MESSAGE_REPEATED_PREFIX_COMMAND
 import static seedu.moolah.logic.commands.expense.AddExpenseCommand.MESSAGE_USAGE;
 import static seedu.moolah.logic.parser.CliSyntax.PREFIX_CATEGORY;
 import static seedu.moolah.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
-import static seedu.moolah.logic.parser.CliSyntax.PREFIX_MENU;
 import static seedu.moolah.logic.parser.CliSyntax.PREFIX_PRICE;
 import static seedu.moolah.logic.parser.CliSyntax.PREFIX_TIMESTAMP;
 
@@ -33,7 +32,7 @@ import seedu.moolah.model.expense.util.UniqueIdentifierGenerator;
 public class AddExpenseCommandParser implements Parser<AddExpenseCommand> {
 
     public static final List<Prefix> REQUIRED_PREFIXES = Collections.unmodifiableList(List.of(
-            PREFIX_DESCRIPTION, PREFIX_PRICE, PREFIX_CATEGORY, PREFIX_MENU
+            PREFIX_DESCRIPTION, PREFIX_PRICE, PREFIX_CATEGORY
     ));
 
     public static final List<Prefix> OPTIONAL_PREFIXES = Collections.unmodifiableList(List.of(
@@ -47,8 +46,7 @@ public class AddExpenseCommandParser implements Parser<AddExpenseCommand> {
      */
     public AddExpenseCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_DESCRIPTION, PREFIX_PRICE, PREFIX_CATEGORY, PREFIX_MENU,
-                        PREFIX_TIMESTAMP);
+                ArgumentTokenizer.tokenize(args, PREFIX_DESCRIPTION, PREFIX_PRICE, PREFIX_CATEGORY, PREFIX_TIMESTAMP);
 
         if (!argMultimap.arePrefixesPresent(PREFIX_DESCRIPTION, PREFIX_PRICE, PREFIX_CATEGORY)
             || !argMultimap.getPreamble().isEmpty()) {
