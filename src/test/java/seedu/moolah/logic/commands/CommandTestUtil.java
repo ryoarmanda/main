@@ -46,7 +46,7 @@ public class CommandTestUtil {
     public static final String VALID_EXPENSE_TIMESTAMP_CHICKEN = "1 week ago";
     public static final String VALID_EXPENSE_TIMESTAMP_TAXI = "yesterday";
     public static final String VALID_EXPENSE_UNIQUE_IDENTIFIER = "Expense@12341234-1234-1234-1234-123412341234";
-    public static final String VALID_EXPENSE_MENU_DESCRIPTION_CHICKEN = "Chicken Rice";
+    public static final String VALID_EXPENSE_MENU_DESCRIPTION_CHICKEN = "Deck Chicken Rice";
     public static final String VALID_EXPENSE_MENU_PRICE_CHICKEN = "2.50";
 
     public static final String VALID_EVENT_DESCRIPTION_BUFFET = "Family buffet";

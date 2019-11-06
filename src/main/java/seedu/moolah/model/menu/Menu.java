@@ -12,7 +12,11 @@ import seedu.moolah.model.expense.Price;
 public class Menu {
 
     private static final List<MenuItem> MENU_ITEMS = List.of(
-        new MenuItem(new Description("chicken rice"), new Price("2.50"))
+            new MenuItem(new Description("Deck Chicken Rice"), new Price("2.50")),
+            new MenuItem(new Description("Finefood Western Combo Set Meal"), new Price("7.50")),
+            new MenuItem(new Description("YIH Nutella Waffle"), new Price("1.50")),
+            new MenuItem(new Description("Deck Ice Milo"), new Price("1.50")),
+            new MenuItem(new Description("E2 Fried Fish Fillet"), new Price("3.50"))
     );
 
     /**
