@@ -1,6 +1,7 @@
 package seedu.moolah.logic.parser.budget;
 
 import static seedu.moolah.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.moolah.commons.core.Messages.MESSAGE_REPEATED_PREFIX_COMMAND;
 import static seedu.moolah.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 
 import java.util.Collections;
@@ -16,7 +17,7 @@ import seedu.moolah.logic.parser.exceptions.ParseException;
 import seedu.moolah.model.expense.Description;
 
 /**
- * Parses input arguments and creates a new SwitchBudgetCommand object
+ * Parses input arguments and creates a new SwitchBudgetCommand object.
  */
 public class SwitchBudgetCommandParser implements Parser<SwitchBudgetCommand> {
 
@@ -35,6 +36,10 @@ public class SwitchBudgetCommandParser implements Parser<SwitchBudgetCommand> {
         if (!argMultimap.arePrefixesPresent(PREFIX_DESCRIPTION)
                 || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SwitchBudgetCommand.MESSAGE_USAGE));
+        }
+
+        if (argMultimap.hasRepeatedPrefixes(PREFIX_DESCRIPTION)) {
+            throw new ParseException(MESSAGE_REPEATED_PREFIX_COMMAND);
         }
 
         Description targetDescription = ParserUtil.parseDescription(argMultimap.getValue(PREFIX_DESCRIPTION).get());

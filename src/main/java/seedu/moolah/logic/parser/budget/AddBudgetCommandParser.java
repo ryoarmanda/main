@@ -1,6 +1,7 @@
 package seedu.moolah.logic.parser.budget;
 
 import static seedu.moolah.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.moolah.commons.core.Messages.MESSAGE_REPEATED_PREFIX_COMMAND;
 import static seedu.moolah.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.moolah.logic.parser.CliSyntax.PREFIX_PERIOD;
 import static seedu.moolah.logic.parser.CliSyntax.PREFIX_PRICE;
@@ -23,7 +24,7 @@ import seedu.moolah.model.expense.Price;
 import seedu.moolah.model.expense.Timestamp;
 
 /**
- * Parses input arguments and creates a new BudgetCommand object
+ * Parses input arguments and creates a new BudgetCommand object.
  */
 public class AddBudgetCommandParser implements Parser<AddBudgetCommand> {
 
@@ -45,6 +46,10 @@ public class AddBudgetCommandParser implements Parser<AddBudgetCommand> {
         if (!argMultimap.arePrefixesPresent(PREFIX_DESCRIPTION, PREFIX_START_DATE, PREFIX_PERIOD, PREFIX_PRICE)
                 || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddBudgetCommand.MESSAGE_USAGE));
+        }
+
+        if (argMultimap.hasRepeatedPrefixes(PREFIX_DESCRIPTION, PREFIX_PRICE, PREFIX_START_DATE, PREFIX_PERIOD)) {
+            throw new ParseException(MESSAGE_REPEATED_PREFIX_COMMAND);
         }
 
         Description description = ParserUtil.parseDescription(argMultimap.getValue(PREFIX_DESCRIPTION).get());

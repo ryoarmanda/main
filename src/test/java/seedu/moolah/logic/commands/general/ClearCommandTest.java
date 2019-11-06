@@ -14,7 +14,7 @@ import seedu.moolah.model.UserPrefs;
 public class ClearCommandTest {
 
     @Test
-    public void run_emptyAddressBook_success() {
+    public void run_emptyMooLah_success() {
         Model model = new ModelManager();
         Model expectedModel = new ModelManager();
         expectedModel.commitModel("");
@@ -23,7 +23,7 @@ public class ClearCommandTest {
     }
 
     @Test
-    public void run_nonEmptyAddressBook_success() {
+    public void run_nonEmptyMooLah_success() {
         Model model = new ModelManager(getTypicalMooLah(), new UserPrefs(), new ModelHistory());
         Model expectedModel = new ModelManager(getTypicalMooLah(), new UserPrefs(), new ModelHistory());
         expectedModel.commitModel("");
