@@ -5,7 +5,6 @@ import static seedu.moolah.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Stream;
 
 import seedu.moolah.logic.commands.budget.SwitchBudgetCommand;
 import seedu.moolah.logic.parser.ArgumentMultimap;
@@ -33,7 +32,7 @@ public class SwitchBudgetCommandParser implements Parser<SwitchBudgetCommand> {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_DESCRIPTION);
 
-        if (!arePrefixesPresent(argMultimap, PREFIX_DESCRIPTION)
+        if (!argMultimap.arePrefixesPresent(PREFIX_DESCRIPTION)
                 || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SwitchBudgetCommand.MESSAGE_USAGE));
         }
@@ -41,14 +40,6 @@ public class SwitchBudgetCommandParser implements Parser<SwitchBudgetCommand> {
         Description targetDescription = ParserUtil.parseDescription(argMultimap.getValue(PREFIX_DESCRIPTION).get());
 
         return new SwitchBudgetCommand(targetDescription);
-    }
-
-    /**
-     * Returns true if none of the prefixes contains empty {@code Optional} values in the given
-     * {@code ArgumentMultimap}.
-     */
-    private static boolean arePrefixesPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {
-        return Stream.of(prefixes).allMatch(prefix -> argumentMultimap.getValue(prefix).isPresent());
     }
 
 }

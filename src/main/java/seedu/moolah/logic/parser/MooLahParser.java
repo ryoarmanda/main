@@ -23,6 +23,7 @@ import seedu.moolah.logic.commands.event.DeleteEventCommand;
 import seedu.moolah.logic.commands.event.EditEventCommand;
 import seedu.moolah.logic.commands.event.ListEventsCommand;
 import seedu.moolah.logic.commands.expense.AddExpenseCommand;
+import seedu.moolah.logic.commands.expense.AddMenuExpenseCommand;
 import seedu.moolah.logic.commands.expense.DeleteExpenseCommand;
 import seedu.moolah.logic.commands.expense.EditExpenseCommand;
 import seedu.moolah.logic.commands.expense.FindExpenseCommand;
@@ -49,6 +50,7 @@ import seedu.moolah.logic.parser.event.DeleteEventCommandParser;
 import seedu.moolah.logic.parser.event.EditEventCommandParser;
 import seedu.moolah.logic.parser.exceptions.ParseException;
 import seedu.moolah.logic.parser.expense.AddExpenseCommandParser;
+import seedu.moolah.logic.parser.expense.AddMenuExpenseCommandParser;
 import seedu.moolah.logic.parser.expense.DeleteExpenseCommandParser;
 import seedu.moolah.logic.parser.expense.EditExpenseCommandParser;
 import seedu.moolah.logic.parser.expense.FindExpenseCommandParser;
@@ -80,10 +82,13 @@ public class MooLahParser {
 
         String commandWord = getCommandWord(input, commandGroup);
         String arguments = input.getArguments();
+
         //expense
         if (AddExpenseCommand.COMMAND_WORD.equals(commandWord)
                 || AddExpenseCommand.COMMAND_WORD_FROM_PRIMARY.equals(commandWord)) {
             return new AddExpenseCommandParser().parse(arguments);
+        } else if (AddMenuExpenseCommand.COMMAND_WORD.equals(commandWord)) {
+            return new AddMenuExpenseCommandParser().parse(arguments);
         } else if (EditExpenseCommand.COMMAND_WORD.equals(commandWord)) {
             return new EditExpenseCommandParser().parse(arguments);
         } else if (EditExpenseFromBudgetCommand.COMMAND_WORD.equals(commandWord)) {
@@ -98,7 +103,8 @@ public class MooLahParser {
             return new FindExpenseCommandParser().parse(arguments);
         } else if (ListExpensesCommand.COMMAND_WORD.equals(commandWord)) {
             return new ListExpensesCommand();
-            //event
+
+        //event
         } else if (AddEventCommand.COMMAND_WORD.equals(commandWord)) {
             return new AddEventCommandParser().parse(arguments);
         } else if (ListEventsCommand.COMMAND_WORD.equals(commandWord)) {
@@ -107,7 +113,8 @@ public class MooLahParser {
             return new EditEventCommandParser().parse(arguments);
         } else if (DeleteEventCommand.COMMAND_WORD.equals(commandWord)) {
             return new DeleteEventCommandParser().parse(arguments);
-            //budget
+
+        //budget
         } else if (AddBudgetCommand.COMMAND_WORD.equals(commandWord)) {
             return new AddBudgetCommandParser().parse(arguments);
         } else if (EditBudgetCommand.COMMAND_WORD.equals(commandWord)) {
@@ -125,7 +132,7 @@ public class MooLahParser {
         } else if (ClearBudgetsCommand.COMMAND_WORD.equals(commandWord)) {
             return new ClearBudgetsCommand();
 
-            //stats
+        //stats
         } else if (StatsCommand.COMMAND_WORD.equals(commandWord)) {
             return new StatsCommandParser().parse(arguments);
         } else if (StatsCompareCommand.COMMAND_WORD.equals(commandWord)) {
@@ -133,7 +140,7 @@ public class MooLahParser {
         } else if (StatsTrendCommand.COMMAND_WORD.equals(commandWord)) {
             return new StatsTrendCommandParser().parse(arguments);
 
-            //alias
+        //alias
         } else if (AddAliasCommand.COMMAND_WORD.equals(commandWord)) {
             return new AddAliasCommandParser().parse(arguments);
         } else if (DeleteAliasCommand.COMMAND_WORD.equals(commandWord)) {
@@ -141,7 +148,7 @@ public class MooLahParser {
         } else if (ListAliasesCommand.COMMAND_WORD.equals(commandWord)) {
             return new ListAliasesCommand();
 
-            //general
+        //general
         } else if (ExitCommand.COMMAND_WORD.equals(commandWord)) {
             return new ExitCommand();
         } else if (HelpCommand.COMMAND_WORD.equals(commandWord)) {
@@ -153,6 +160,7 @@ public class MooLahParser {
         } else if (ViewPanelCommand.COMMAND_WORD.equals(commandWord)) {
             return new ViewPanelCommandParser().parse(arguments);
         }
+
         // check if alias exists
         if (readOnlyUserPrefs.hasAlias(commandWord)) {
             Alias alias = readOnlyUserPrefs.getAlias(commandWord);

@@ -7,7 +7,7 @@ import seedu.moolah.model.expense.Description;
 import seedu.moolah.model.expense.Price;
 
 /**
- * Menu represents the collection of {@code MenuItems}.
+ * Menu represents the collection of {@code MenuItems} supported by MooLah.
  */
 public class Menu {
 

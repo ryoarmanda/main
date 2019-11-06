@@ -11,7 +11,7 @@ import seedu.moolah.model.expense.Price;
 public class MenuItem {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Only supported menu items are allowed. See User Guide for the complete list.";
+            "Only supported menu items are allowed. Refer to User Guide for the complete list.";
 
     private Description description;
     private Price price;
