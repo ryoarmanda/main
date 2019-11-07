@@ -113,10 +113,6 @@ public class MooLah implements ReadOnlyMooLah {
         }
 
          */
-
-//        for (Budget b : budgets) {
-//            for
-//        }
     }
 
     //=========== Expense-level operations =============================================================
@@ -137,14 +133,16 @@ public class MooLah implements ReadOnlyMooLah {
     public void addExpense(Expense p) {
         if (p.getBudgetName() == null) {
             Budget primaryBudget = budgets.getPrimaryBudget();
+            Budget copy = primaryBudget.deepCopy();
             p.setBudget(primaryBudget);
-            primaryBudget.addExpense(p);
-            //primaryBudget.updateProportionUsed();
+            copy.addExpense(p);
+            setBudget(primaryBudget, copy);
         } else {
             Budget budget = budgets.getBudgetWithName(p.getBudgetName());
             if (budget != null) {
-                budget.addExpense(p);
-                //budget.updateProportionUsed();
+                Budget copy = budget.deepCopy();
+                copy.addExpense(p);
+                setBudget(budget, copy);
             }
         }
         expenses.add(p);
@@ -336,7 +334,9 @@ public class MooLah implements ReadOnlyMooLah {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof MooLah // instanceof handles nulls
-                && expenses.equals(((MooLah) other).expenses));
+                && expenses.equals(((MooLah) other).expenses)
+                && events.equals(((MooLah) other).events));
+        // && budgets.equals(((MooLah) other).budgets));
     }
 
     @Override

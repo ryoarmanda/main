@@ -22,6 +22,7 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import javafx.scene.text.Font;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -83,7 +84,6 @@ import seedu.moolah.logic.parser.statistics.StatsCommandParser;
 import seedu.moolah.logic.parser.statistics.StatsCompareCommandParser;
 import seedu.moolah.logic.parser.statistics.StatsTrendCommandParser;
 import seedu.moolah.model.Timekeeper;
-import seedu.moolah.model.budget.Budget;
 import seedu.moolah.model.expense.Event;
 import seedu.moolah.model.expense.Timestamp;
 import seedu.moolah.model.statistics.FiveElementTableEntry;
@@ -417,7 +417,8 @@ public class MainWindow extends UiPart<Stage> {
      * @param panelName The Panel Name of assigned to the Panel.
      * @throws UnmappedPanelException if there is no Panel assigned to the specified Panel Name.
      */
-    private void changePanel(PanelName panelName) throws UnmappedPanelException {
+    void changePanel(PanelName panelName) throws UnmappedPanelException {
+        singlePanelView.setPanel(BudgetPanel.PANEL_NAME, new BudgetPanel(logic.getPrimaryBudget()));
         configureGenericCommands(panelName);
 
         if (panelName.equals(StatsPanel.PANEL_NAME)) {
@@ -594,10 +595,7 @@ public class MainWindow extends UiPart<Stage> {
             UnmappedPanelException {
 
         try {
-            Budget primaryBudget = logic.getPrimaryBudget();
-            boolean initialIsHalf = primaryBudget.isHalf();
-            boolean initialIsNear = primaryBudget.isNear();
-            boolean initialIsExceeded = primaryBudget.isExceeded();
+            boolean[] initialPrimaryBudgetStatus = logic.recordInitialPrimaryBudgetStatus();
 
             String commandGroup = decideCommandGroup();
             CommandResult commandResult = logic.execute(commandText, commandGroup);
@@ -617,12 +615,9 @@ public class MainWindow extends UiPart<Stage> {
                 handleExit();
             }
 
-            boolean finalIsHalf = primaryBudget.isHalf();
-            boolean finalIsNear = primaryBudget.isNear();
-            boolean finalIsExceeded = primaryBudget.isExceeded();
+            boolean[] finalPrimaryBudgetStatus = logic.recordFinalPrimaryBudgetStatus();
 
-            showWarningIfAny(initialIsHalf, initialIsNear, initialIsExceeded,
-                    finalIsHalf, finalIsNear, finalIsExceeded);
+            showWarningIfAny(initialPrimaryBudgetStatus, finalPrimaryBudgetStatus);
 
             return commandResult;
         } catch (CommandException | ParseException e) {
@@ -669,7 +664,7 @@ public class MainWindow extends UiPart<Stage> {
     public void handleTranspiredEvents() {
         List<Event> transpiredEvents = timekeeper.getTranspiredEvents();
         for (Event event : transpiredEvents) {
-            TranspiredEventsWindow eventWindow = new TranspiredEventsWindow(logic);
+            TranspiredEventsWindow eventWindow = new TranspiredEventsWindow(logic, this);
             eventWindow.show(event);
         }
     }
@@ -684,6 +679,7 @@ public class MainWindow extends UiPart<Stage> {
         popup.setHideOnEscape(true);
         Label label = new Label(message);
         label.setBackground(BUDGET_WARNING_POPUP_BACKGROUND);
+        label.setFont(new Font(17));
         label.setTextFill(Color.WHITE);
         popup.getContent().add(label);
         return popup;
@@ -710,20 +706,23 @@ public class MainWindow extends UiPart<Stage> {
     /**
      * Determines if there is a need to show warnings, and shows the corresponding warnings.
      */
-    public void showWarningIfAny(boolean initialIsHalf, boolean initialIsNear, boolean initialIsExceeded,
-                                 boolean finalIsHalf, boolean finalIsNear, boolean finalIsExceeded) {
+    public void showWarningIfAny(boolean[] initialStatus, boolean[] finalStatus) {
 
-        if (!initialIsExceeded && finalIsExceeded) {
+        int isExceededId = 0;
+        int isNearId = 1;
+        int isHalfId = 2;
+
+        if (!initialStatus[isExceededId] && finalStatus[isExceededId]) {
             showPopupMessage(MESSAGE_BUDGET_EXCEEDED);
             return;
         }
 
-        if (!initialIsNear && finalIsNear) {
+        if (!initialStatus[isNearId] && finalStatus[isNearId]) {
             showPopupMessage(MESSAGE_BUDGET_NEAR);
             return;
         }
 
-        if (!initialIsHalf && finalIsHalf) {
+        if (!initialStatus[isHalfId] && finalStatus[isHalfId]) {
             showPopupMessage(MESSAGE_BUDGET_HALF);
         }
     }

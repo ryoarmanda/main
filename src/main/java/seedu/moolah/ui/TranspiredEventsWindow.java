@@ -8,12 +8,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import seedu.moolah.commons.core.LogsCenter;
 import seedu.moolah.logic.Logic;
+import seedu.moolah.logic.commands.CommandResult;
 import seedu.moolah.logic.commands.exceptions.CommandException;
 import seedu.moolah.logic.parser.exceptions.ParseException;
 import seedu.moolah.model.expense.Event;
+import seedu.moolah.ui.panel.exceptions.UnmappedPanelException;
 
 /**
  * Controller for a help page
@@ -28,6 +31,7 @@ public class TranspiredEventsWindow extends UiPart<Stage> {
     private static final String FXML = "TranspiredEventsWindow.fxml";
     private Event currentEvent;
     private Logic logic;
+    private MainWindow mainWindow;
 
     @FXML
     private Button yesButton;
@@ -43,17 +47,19 @@ public class TranspiredEventsWindow extends UiPart<Stage> {
      *
      * @param root Stage to use as the root of the HelpWindow.
      */
-    public TranspiredEventsWindow(Stage root, Logic logic) {
+    public TranspiredEventsWindow(Stage root, Logic logic, MainWindow mainWindow) {
         super(FXML, root);
         this.logic = logic;
+        this.mainWindow = mainWindow;
+        root.initStyle(StageStyle.TRANSPARENT);
         root.sizeToScene();
     }
 
     /**
      * Creates a new HelpWindow.
      */
-    public TranspiredEventsWindow(Logic logic) {
-        this(new Stage(), logic);
+    public TranspiredEventsWindow(Logic logic, MainWindow mainWindow) {
+        this(new Stage(), logic, mainWindow);
     }
 
     /**
@@ -115,9 +121,10 @@ public class TranspiredEventsWindow extends UiPart<Stage> {
     @FXML
     private void addExpenseFromEvent() {
         try {
-            logic.addExpenseFromEvent(currentEvent);
+            CommandResult commandResult = logic.addExpenseFromEvent(currentEvent);
+            mainWindow.changePanel(commandResult.viewRequest());
             getRoot().close();
-        } catch (CommandException | ParseException e) {
+        } catch (CommandException | ParseException | UnmappedPanelException e) {
             message.setText(ERROR_MESSAGE);
             PauseTransition delay = new PauseTransition(Duration.seconds(1.5));
             delay.setOnFinished(event -> getRoot().close());
