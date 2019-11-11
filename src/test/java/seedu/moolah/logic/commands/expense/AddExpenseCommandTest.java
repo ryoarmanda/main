@@ -47,8 +47,6 @@ public class AddExpenseCommandTest {
         Expense validExpense = new ExpenseBuilder().build();
 
         List<Expense> expectedExpensesAdded = Arrays.asList(validExpense);
-        Stack<ModelStub> expectedPastModels = new Stack<>();
-        expectedPastModels.push(new ModelStubAcceptingExpenseAdded(modelStub));
 
         CommandResult commandResult = new AddExpenseCommand(validExpense).run(modelStub);
 
