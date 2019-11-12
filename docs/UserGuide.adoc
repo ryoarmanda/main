@@ -112,7 +112,7 @@ Format: `help`
 Did something wrong? You can undo it.
 
 However, do keep in mind that you can only undo commands that modify the data in MooLah, such as `addexpense`, `deleteexpense-primary`, and so on.
-Head over to <<UserGuide.adoc#_command_summary,Command Summary>> for list of commands that are undoable.
+Head over to https://ay1920s1-cs2103t-t11-1.github.io/main/UserGuide.html#command-summary["Command Summary" section] for list of commands that are undoable.
 
 Do not worry if you forgot what you did a few steps back (it happens!). MooLah will display a short description of what
 particular command it undid to help you confirm that you undid the right thing.
@@ -313,8 +313,9 @@ image:others.png[width=70] Others
 This is what makes MooLah special for NUS students.
 Shortcut your way to adding expenses for foods and drinks in NUS!
 
-Currently, MooLah only supports just a handful of menu items, though. Head over to our <<UserGuide.adoc#_menu_items_list, menu items list>> to see the
-supported menu items. A more comprehensive menu list is on its way in v2.0!
+Currently, MooLah only supports just a handful of menu items, though. Head over to our
+https://ay1920s1-cs2103t-t11-1.github.io/main/UserGuide.html#menu-items-list["Menu Items List" section]
+to see the supported menu items. A more comprehensive menu list is on its way in v2.0!
 
 Format:
 ----
@@ -1137,7 +1138,6 @@ the data of your previous MooLah folder.
 * *Exit the app* : `exit`
 * *Undo* : `undo`
 * *Redo* : `redo`
-* *Clear MooLah* : `clearmoolah`
 
 ---
 
@@ -1147,6 +1147,9 @@ the data of your previous MooLah folder.
 `addexpense d/<DESCRIPTION> p/<PRICE>  c/<CATEGORY> [t/<TIME>]` +
 e.g. `addexpense d/Chicken Rice p/2.50 t/15-09-2019 1230 c/Food`
 
+* *Add menu-item expense* (_undoable_) : +
+`addmenuexpense m/<MENU_ITEM> [t/<TIME>]` +
+e.g. `addmenuexpense m/deck chicken rice`
 
 * *List all expenses* : +
 `listexpense`
@@ -1219,7 +1222,7 @@ e.g. `statstrend sd/11-11-2018 ed/12-12-2018 mode/category`
 * *Add alias* (_undoable_) : `addalias a/<ALIAS_NAME> i/<INPUT>` +
 e.g. `alias a/chicken rice c/ add d/ Chicken Rice p/2.50 c/Food`
 * *See all aliases* : `listalias`
-* *Delete an alias* : `deletealias <DESCRIPTION>`
+* *Delete an alias* (_undoable_): `deletealias <DESCRIPTION>`
 
 // tag::menuitemslist[]
 == Menu Items List
