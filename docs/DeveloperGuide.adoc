@@ -137,7 +137,7 @@ The content that is being shown in the `MainWindow` to the user is managed by a 
 ``PanelManager#viewPanel(PanelName)`` +
 ``PanelManager#hasPanel(PanelName)`` +
 ``PanelManager#getPanel(PanelName)`` +
-``PanelManager#setPanel(PanelName, Panel)``
+``PanelManager#setPanel(PanelName, Panel)`` +
 ``PanelManager#getCurrentPanel()`` +
 ``PanelManager#getCurrentPanelName()`` +
 ``PanelManager#removePanel(PanelName)`` +
@@ -1851,9 +1851,31 @@ i.e. `add` on the Expense List panel, should behave as `addexpense`
 
 
 
+=== Testing statsbasic
+.. Prerequisites: Create a new budget, one possible way is `addbudget d/school p/3.00 sd/28-10 pr/day`.
+.. Test case: `statsbasic` + Expected: A success message of "Pie Chart calculated!" appears with the correct date, amount
+   but no pie chart being shown
+.. Test case: Add an expense to the empty budget `addexpense d/ chicken rice p/2.50 c/food` and type `statsbasic` + Expected:
+   A success message of "Pie Chart calculated!" appears with the correct date, amount but a pie chart being shown with only food
+   category showing 100.00%.
+.. Test case: In any budget, type `statsbasic sd/12-12 ed/11-11` + Expected : Start date must be before end date.
 
+=== Testing statscompare
+.. Prerequisites: Create a new budget, one possible way is `addbudget d/school p/3.00 sd/28-10 pr/day`.
+.. Test case: `statscompare sd1/12-12 sd2/ 1 month ago` + Expected: A success message of "Statistics Comparison Calculated!" appears with the correct date, amount
+but entries all reflect 0
+.. Test case: Add an expense to the empty budget `addexpense d/ chicken rice p/2.50 c/food t/28-10` and type `statscompare sd1/28-10 sd2/ 29-10`
++ Expected: A success message of "Statistics Comparison Calculated!" appears with the correct date, with the first entries of difference amount
+pointing to -2.5.
 
-
-
-
+=== Testing statstrend
+.. Prerequisites: Create a new budget, one possible way is `addbudget d/school p/3.00 sd/28-10 pr/day`.
+.. Test case: `statstrend mode/category` + Expected: A success message of "Statistics Trend Calculated!" appears with the correct date, unit of time,
+but no trend lines are seen
+.. Test case: Add an expense to the empty budget `addexpense d/ chicken rice p/2.50 c/food t/28-10` and type `statstrend mode/category sd/28-10`
++ Expected: A success message of "Statistics Trend Calculated!" appears with the correct date, unit of time,
+1 trend line for food is observed, with the first plotted point of the line being the highest non-zero point at y-axis = 2.50
+.. Now, add one more expense like `addexpense d/ chicken rice p/3.50 c/food t/29-10` and type `statstrend mode/category sd/28-10` again. +
+Expected: A success message of "Statistics Trend Calculated!" appears with the correct date, unit of time,
+1 trend line for food is observed, with 2 points observed.
 

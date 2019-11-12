@@ -47,9 +47,10 @@ NOTE: Contains key information relevant to the execution of commands in MooLah.
 
 IMPORTANT: Contains important information on feature implementation.
 
-```
+[source]
+----
 {contains sample command-line input}
-```
+----
 
 `TAB` `Enter` : keys on the keyboard of your computer
 
@@ -960,7 +961,7 @@ of the current window of the budget, seen on the top right of the budget progres
 Example of configurations:
 ----
 statsbasic
-statsbasic sd/ytd
+statsbasic sd/tmr
 statsbasic sd/11-11-2018 ed/12-12-2018
 ----
 
@@ -1019,15 +1020,13 @@ is calculated using the formula `second period` - `first period`.
 
 - The end dates for both start dates specified by the user are constructed using the period
 that the current budget is using.
-
-
 ****
 
 
 Example of configurations:
 ----
 statscompare sd1/12-12 sd2/ 1 month ago
-statscompare sd2/ today sd1/ytd
+statscompare sd2/ today sd1/tmr
 statscompare sd2/ 23-09-2019 sd1/1 year ago
 ----
 
@@ -1081,22 +1080,24 @@ Tips:
 - There is no need to specify all the parameters if the outcomes of the example usage scenarios
 below fit your needs
 
-- If `START_DATE` is specified but `END_DATE` is empty, the end date of analysis is constructed till 34 unit of time after `START_DATE`,
-before the consideration of the earliest available window of the current budget.
+- If `START_DATE` is specified but `END_DATE` is empty, the end date of analysis is constructed till
+34 unit of time after `START_DATE`, before the consideration of the earliest available window of the
+current budget.
 
-- If `START_DATE` is empty but `END_DATE` is specified, the start date of analysis is constructed from 34 unit of time before `END_DATE`,
-before the consideration of the earliest available window of the current budget.
+- If `START_DATE` is empty but `END_DATE` is specified, the start date of analysis is constructed from
+34 unit of time before `END_DATE`, before the consideration of the earliest available window of the
+current budget.
 
-- If both `START_DATE` and `END_DATE` are empty, the start date of analys is constructed from 17 units of time before the start date
-of the current window of the current budget and the end date of analysis is constructed from 17 units after the
-start date of the current window of the current budget.
+- If both `START_DATE` and `END_DATE` are empty, the start date of analys is constructed from 17
+units of time before the start date of the current window of the current budget and the end date
+of analysis is constructed from 17 units after the start date of the current window of the current budget.
 
 
 
 Example of configurations:
 ----
 statstrend mode/category
-statstrend sd/ytd mode/category
+statstrend sd/tmr mode/category
 statstrend sd/11-11-2018 ed/12-12-2018 mode/category
 ----
 
@@ -1118,11 +1119,56 @@ MooLah data are saved in the hard disk automatically after any command that chan
 There is no need to save manually.
 
 === Encrypting data files `[coming in v2.0]`
+Hide sensitive data in you data files
 
 === Email notification `[coming in v2.0]`
+Send email notifications to remind you of upcoming events
+
 === Input expenses using speech `[coming in v2.0]`
+Add expenses and execute other commands by talking to MooLah
+
 === Input expenses by scanning a receipt `[coming in v2.0]`
+Add expenses and by taking a picture of your receipt
+
 === Splitting a shared bill `[coming in v2.0]`
+Did you pay a bill for your friends? Let us breakdown for you who pays for who.
+
+=== Budget planner `[coming in v2.0]`
+Plan how to allocate your money.
+
+=== Generate a saving plan `[coming in v2.0]`
+Have something you want to buy? Let us help you generate a good saving plan!
+
+=== Import and export your data `[coming in v2.0]`
+Easy data sharing
+
+=== Calculate your taxes `[coming in v2.0]`
+Calculate how much taxes you need to pay
+
+=== Currency Conversion `[coming in v2.0]`
+Change all your expenses to be displayed in a different currency!
+
+=== Privacy `[coming in v2.0]`
+Hide sensitive information
+
+=== Income tracking `[coming in v2.0]`
+Incorporating you income as well as expenses
+
+=== Predictions `[coming in v2.0]`
+Predict possible expenses and inputs based on your habits
+
+=== Printing expense statements `[coming in v2.0]`
+Pretty printing of your data
+
+=== Even better command-line `[coming in v2.0]`
+Dynamic input validation and highlighting of incorrect arguments
+
+=== Multiple-item expenses `[coming in v2.0]`
+Grouping expenses together
+
+=== Recurring expenses `[coming in v2.0]`
+Set an expense to recur daily, week, monthly, and more!
+
 
 == FAQ
 
@@ -1199,7 +1245,8 @@ e.g. `deletebudget-id 2`
 * *Clear all budgets* : `clearbudget` (_undoable_)
 * *View expenses in a different period* (_undoable_) : `switchperiod t/<DATE>` +
 e.g. `switchperiod t/01-05`
-* *Edit expense inside a budget* (_undoable_) : `editexpense-primary <INDEX> [d/<DESCRIPTION>] [p/<PRICE>] [c/<CATEGORY>] [t/<TIMESTAMP>]` +
+* *Edit expense inside a budget* (_undoable_) :
+`editexpense-primary <INDEX> [d/<DESCRIPTION>] [p/<PRICE>] [c/<CATEGORY>] [t/<TIMESTAMP>]` +
 e.g. `editexpense-primary 1 d/chicken`
 * *Delete expense inside a budget* (_undoable_) : `deleteexpense-primary` <INDEX> +
 e.g. `deleteexpense-primary 2`
@@ -1220,7 +1267,7 @@ e.g. `statstrend sd/11-11-2018 ed/12-12-2018 mode/category`
 *Everything alias:*
 
 * *Add alias* (_undoable_) : `addalias a/<ALIAS_NAME> i/<INPUT>` +
-e.g. `alias a/chicken rice c/ add d/ Chicken Rice p/2.50 c/Food`
+e.g. `addalias a/chicken rice i/ add d/ Chicken Rice p/2.50 c/Food`
 * *See all aliases* : `listalias`
 * *Delete an alias* (_undoable_): `deletealias <DESCRIPTION>`
 
