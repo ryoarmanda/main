@@ -1639,12 +1639,12 @@ Adding an expense from a menu-item instead of manually define the expense data.
 Undo and redo operations to an undoable command.
 
 .. Prerequisites: None.
+.. Test case: `undo` +
+   Expected: MooLah will display an error stating that nothing can be undone.
 .. Test case: `addexpense d/pasta p/7.0 c/food` continued with `undo` +
    Expected: The addition of the "pasta" expense will be undone. MooLah will display the undo message in the result display.
 .. Test case: `addbudget d/fun p/300 sd/05-09 pr/month` continued with `undo` and then `redo` +
-   Expected: The "fun" budget will continue be added to MooLah.
-.. Test case: `undo` +
-   Expected: MooLah will display an error stating that nothing can be undone.
+   Expected: The "fun" budget will continue to be added to MooLah.
 
 === Adding a budget
 
