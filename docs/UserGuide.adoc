@@ -151,7 +151,7 @@ Similar to undo, MooLah will display a short description of the command it redid
 Format: `redo`
 
 Example:
-Continuing the example in `undo`... now you think that the "bowling" expense is in the right place after all, and you wish to do the addition again.
+Continuing the example in the "undo" section... suppose now you think that the "bowling" expense is in the right place after all, and you wish to do the addition again.
 ----
 redo
 ----
